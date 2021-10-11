@@ -1,1 +1,8 @@
-<p>event-details works!</p>
+<div class="post-details pt-3 pb-3">
+    <div class="text-secondary mb-4 text-right">
+      {{event?.date | date: 'longDate'}}<br>
+      Author: {{event?.name}}
+    </div>
+    <div>{{event?.location}}</div>
+    <div>{{event?.weather}}</div>
+  </div>
