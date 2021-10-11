@@ -1,0 +1,11 @@
+<div class="posts-list">
+    <div *ngFor="let post of postsList" class="pt-3 pb-3 mb-5">
+      <h2 class="mb-4"><a routerLink="/post/{{post._id}}" class="text-dark">{{event.name}}</a></h2>
+      <div class="text-secondary mb-3 text-right">
+        {{event.date | date: 'longDate'}} <br>
+      </div>
+      <div class="mb-4">{{event.location}}</div>
+      <div class="mb-4">{{event.weather}}</div>
+      <a routerLink="/event/{{event._id}}" class="btn btn-outline-dark">Read more!</a>
+    </div>
+  </div>
