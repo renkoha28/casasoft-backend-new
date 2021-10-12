@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeDescComponent } from './components/welcome-desc/welcome-desc.component';
@@ -11,12 +12,18 @@ import { EventDetailsComponent } from './components/event-details/event-details.
 import { EventsListComponent } from './components/events-list/events-list.component';
 import { EventService } from './services/event.service';
 import { RouterModule, Routes } from '@angular/router';
+import { BaseComponent } from './components/base/base.component';
 
 const appRoutes: Routes = [
-  { path: '', component: EventsListComponent },
-  { path: 'event/:id', component: EventDetailsComponent }
+  {
+    path: '',
+    component: BaseComponent,
+    children: [
+      { path: '', component: EventsListComponent },
+      { path: 'event/:id', component: EventDetailsComponent }
+    ]
+  }
 ];
-
 
 @NgModule({
   declarations: [
@@ -24,7 +31,8 @@ const appRoutes: Routes = [
     WelcomeDescComponent,
     HeaderComponent,
     EventDetailsComponent,
-    EventsListComponent
+    EventsListComponent,
+    BaseComponent
   ],
   imports: [
     BrowserModule,

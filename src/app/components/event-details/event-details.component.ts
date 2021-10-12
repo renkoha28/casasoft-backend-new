@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import Post from '../../models/event.model';
+import Event from '../../models/event.model';
 import { EventService } from '../../services/event.service';
 @Component({
   selector: 'app-event-details',

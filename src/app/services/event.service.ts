@@ -23,4 +23,20 @@ export class EventService {
       .map(response => response['data'] as Event);
   }
 
+  public deleteEvent(id: string): Observable<Event> {
+    return this.http
+      .delete(`${this.eventUrl}/${id}`)
+      .map(response => response['data'] as Event);
+  }
+
+  public addEvent(event: Event): Observable<Event> {
+    return this.http
+      .post<Event>(this.eventUrl, { data: event });
+  }
+
+  public editEvent(id: string, event: Event): Observable<Event> {
+    return this.http
+      .put<Event>(`${this.eventUrl}/${id}`, { data: event });
+  }
+
 }
